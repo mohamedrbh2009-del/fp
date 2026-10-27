@@ -130,7 +130,7 @@ extern "C" void OnModLoad()
     SET_TO(FindPlayerHeading,   aml->GetSym(hGTASA, "_Z17FindPlayerHeadingi"));
     SET_TO(TakeControlNoEntity, aml->GetSym(hGTASA, "_ZN7CCamera19TakeControlNoEntityERK7CVectorsi"));
     SET_TO(RestoreWithJumpCut,  aml->GetSym(hGTASA, "_ZN7CCamera18RestoreWithJumpCutEv"));
-    SET_TO(IsTouchDown,         aml->GetSym(hGTASA, "_ZN15CTouchInterface11IsTouchDownEi"));
+    // SET_TO(IsTouchDown,         aml->GetSym(hGTASA, "_ZN15CTouchInterface11IsTouchDownEi"));
 
     FLogSym("FindPlayerPed",       (void*)FindPlayerPed);
     FLogSym("FindPlayerVehicle",   (void*)FindPlayerVehicle);
