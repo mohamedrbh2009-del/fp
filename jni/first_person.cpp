@@ -1,4 +1,4 @@
-#include <mod/amlmod.h>
+#include <mod/config.h>
 #include <mod/logger.h>
 #include <dlfcn.h>
 #include <math.h>
@@ -67,7 +67,7 @@ extern "C" void OnModLoad()
     SET_TO(TakeControlNoEntity, aml->GetSym(hGTASA, "_ZN7CCamera19TakeControlNoEntityERK7CVectorsi"));
     SET_TO(pTheCamera,          aml->GetSym(hGTASA, "TheCamera"));
 
-    void* camProcess = aml->GetSym(hGTASA, "_ZN7CCamera7ProcessEv");
+    uintptr_t camProcess = aml->GetSym(hGTASA, "_ZN7CCamera7ProcessEv");
     if (!camProcess) { logger->Error("CCamera::Process symbol missing, mod disabled"); return; }
     HOOK(CCamera_Process, camProcess);
 
