@@ -1,0 +1,20 @@
+name: build-so
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r26d
+      - name: Fetch AML headers
+        run: git clone --depth 1 https://github.com/RusJJ/AndroidModLoader.git /tmp/aml && cp -r /tmp/aml/mod jni/AML_tmp && mkdir -p jni/AML && mv jni/AML_tmp jni/AML/mod
+      - name: Build
+        run: ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=jni/Android.mk NDK_APPLICATION_MK=jni/Application.mk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GTASA_FirstPerson-armv7
+          path: libs/armeabi-v7a/libGTASA_FirstPerson.so
