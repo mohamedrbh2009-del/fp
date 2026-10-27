@@ -70,7 +70,7 @@ extern "C" void OnModLoad()
 
     uintptr_t camProcess = aml->GetSym(hGTASA, "_ZN7CCamera7ProcessEv");
     if (!camProcess) { logger->Error("CCamera::Process symbol missing, mod disabled"); return; }
-    HOOK(CCamera_Process, camProcess);
+   // HOOK(CCamera_Process, camProcess);
 
     logger->Info("First person loaded");
 }
